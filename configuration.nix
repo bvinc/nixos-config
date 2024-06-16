@@ -18,6 +18,9 @@
     device = "/dev/nvme0n1p3";
   };
 
+  nixpkgs.config.allowUnfree = true;
+  
+  
   networking.hostName = "xenu"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,10 +81,6 @@
   users.users.brain = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-      tree
-    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -91,14 +90,6 @@
     wget
     git
   ];
-
-
-# Attempt at turning off mouse accel
-#  programs.dconf.profiles.user.databases = {
-#    settings = with lib.gvariant; {
-#      "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
-#    };
-#  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -111,7 +102,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

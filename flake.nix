@@ -5,6 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons = { url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    
+    inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {

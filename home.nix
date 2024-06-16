@@ -4,6 +4,7 @@
 {
   imports = [
     ./firefox.nix
+    ./vscode.nix
   ];
   
   home.stateVersion = "24.05";
