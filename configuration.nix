@@ -6,9 +6,23 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  hardware = {
+    opengl.enable = true;
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+    opengl.extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -19,12 +33,12 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  
-  
+
+
   networking.hostName = "xenu"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -50,12 +64,12 @@
   services.xserver.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverrides = ''
-      	[org.gnome.desktop.peripherals.mouse]
-	accel-profile = "flat"
-        speed = 1.00
+            	[org.gnome.desktop.peripherals.mouse]
+      	accel-profile = "flat"
+              speed = 1.00
     '';
   };
-  
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
