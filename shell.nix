@@ -17,6 +17,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      abbr nrs sudo nixos-rebuild switch --flake ~/.config/nixos-config
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs

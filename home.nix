@@ -13,8 +13,12 @@
 
   home = {
     packages = with pkgs; [
+      gnome3.gnome-tweaks
+      gnome3.gnome-terminal
+      grc
       nixpkgs-fmt
       steam
+      traceroute
     ];
   };
 

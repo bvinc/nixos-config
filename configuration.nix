@@ -64,9 +64,13 @@
   services.xserver.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverrides = ''
-            	[org.gnome.desktop.peripherals.mouse]
-      	accel-profile = "flat"
-              speed = 1.00
+      [org.gnome.desktop.peripherals.mouse]
+        accel-profile = "flat"
+        speed = 1.00
+      [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0]
+        binding='<Alt><Control>t'
+        command='gnome-terminal'
+        name='Open terminal'
     '';
   };
 
@@ -81,12 +85,11 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
