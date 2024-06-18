@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./openrgb.nix
     ];
 
   hardware = {
@@ -34,7 +35,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-
   networking.hostName = "xenu"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -54,8 +54,6 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-
-  services.hardware.openrgb.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -109,6 +107,9 @@
     wget
     git
   ];
+
+  # To allow third-party un-packaged non-static binaries to run
+  programs.nix-ld.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

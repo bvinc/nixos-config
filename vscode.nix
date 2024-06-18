@@ -9,6 +9,8 @@
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
+      "editor.inlayHints.enabled" = "offUnlessPressed";
+      "rust-analyzer.check.command" = "clippy";
     };
   };
 }
