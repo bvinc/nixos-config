@@ -17,15 +17,16 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      theme_gruvbox dark hard
       abbr nrs sudo nixos-rebuild switch --flake ~/.config/nixos-config
       source "$HOME/.cargo/env.fish"
-      set hydro_color_pwd  yellow
-      set hydro_color_git  green
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
+      { name = "autopair"; src = pkgs.fishPlugins.autopair.src; }
       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
+      { name = "gruvbox"; src = pkgs.fishPlugins.gruvbox.src; }
+
       # Manually packaging and enable a plugin
       {
         name = "z";
