@@ -16,6 +16,7 @@
       gcc
       gnome3.gnome-terminal
       gnome3.gnome-tweaks
+      gnome3.dconf-editor
       grc
       llvm
       nixpkgs-fmt # nix formatter
@@ -33,10 +34,16 @@
       idle-delay = lib.hm.gvariant.mkUint32 [ 900 ]; # 15 minutes
     };
 
+    # Custom Keyboard Shortcuts
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = lib.hm.gvariant.mkString ("<Alt><Control>t");
-      command = lib.hm.gvariant.mkString ("gnome-terminal");
-      name = lib.hm.gvariant.mkString ("Open terminal");
+      binding = "<Alt><Control>t";
+      command = "gnome-terminal";
+      name = "Open terminal";
     };
 
   };
