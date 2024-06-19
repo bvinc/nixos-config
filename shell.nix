@@ -19,10 +19,13 @@
       set fish_greeting # Disable greeting
       abbr nrs sudo nixos-rebuild switch --flake ~/.config/nixos-config
       source "$HOME/.cargo/env.fish"
+      set hydro_color_pwd  yellow
+      set hydro_color_git  green
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
       # Manually packaging and enable a plugin
       {
         name = "z";

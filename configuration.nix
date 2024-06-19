@@ -67,10 +67,6 @@
       [org.gnome.desktop.peripherals.mouse]
         accel-profile = "flat"
         speed = 1.00
-      [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0]
-        binding='<Alt><Control>t'
-        command='gnome-terminal'
-        name='Open terminal'
     '';
   };
 
