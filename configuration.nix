@@ -150,7 +150,36 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
 
+  # Enable flakes support
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Enable virt-manager
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+
+
+  # Enable triple buffering patch for GNOME
+  nixpkgs.overlays = [
+    # GNOME 46: triple-buffering-v4-46
+    (final: prev: {
+      gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+        mutter = gnomePrev.mutter.overrideAttrs (old: {
+          src = pkgs.fetchFromGitLab {
+            domain = "gitlab.gnome.org";
+            owner = "vanvugt";
+            repo = "mutter";
+            rev = "triple-buffering-v4-46";
+            hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+          };
+        });
+      });
+    })
+  ];
+  
+  boot.extraModprobeConfig = ''
+  options snd_hda_intel power_save=0 power_save_controller=N
+  '';
+  
 }
 
