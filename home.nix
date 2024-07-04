@@ -42,10 +42,16 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Alt><Control>t";
-      command = "gnome-terminal";
-      name = "Open terminal";
+      command = "kgx";
+      name = "Open Console";
     };
 
+    # Night light on, sunset to sunrise, warmest settings
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-schedule-automatic = true;
+      night-light-temperature = lib.hm.gvariant.mkUint32 [ 1700 ];
+    };
   };
 }
 
