@@ -11,6 +11,10 @@
       "telemetry.telemetryLevel" = "off";
       "editor.inlayHints.enabled" = "offUnlessPressed";
       "rust-analyzer.check.command" = "clippy";
+      "workbench.colorTheme" = "Panda Syntax";
+      "editor.formatOnSave" = true;
+      "rust-analyzer.imports.granularity.group" = "module";
+
     };
   };
 }

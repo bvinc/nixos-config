@@ -70,6 +70,18 @@
     '';
   };
 
+  ###### SWAY ########
+  # Enable the gnome-keyring secrets vault. 
+  # Will be exposed through DBus to programs willing to store secrets.
+  services.gnome.gnome-keyring.enable = true;
+
+  # enable sway window manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  ###### END SWAY ########
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -102,6 +114,14 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+
+    ######## SWAY ########
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
+    ######## END SWAY ########
+
   ];
 
   # To allow third-party un-packaged non-static binaries to run
@@ -159,27 +179,27 @@
 
 
 
-  # Enable triple buffering patch for GNOME
-  nixpkgs.overlays = [
-    # GNOME 46: triple-buffering-v4-46
-    (final: prev: {
-      gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-        mutter = gnomePrev.mutter.overrideAttrs (old: {
-          src = pkgs.fetchFromGitLab {
-            domain = "gitlab.gnome.org";
-            owner = "vanvugt";
-            repo = "mutter";
-            rev = "triple-buffering-v4-46";
-            hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-          };
-        });
-      });
-    })
-  ];
-  
+  # # Enable triple buffering patch for GNOME
+  # nixpkgs.overlays = [
+  #   # GNOME 46: triple-buffering-v4-46
+  #   (final: prev: {
+  #     gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+  #       mutter = gnomePrev.mutter.overrideAttrs (old: {
+  #         src = pkgs.fetchFromGitLab {
+  #           domain = "gitlab.gnome.org";
+  #           owner = "vanvugt";
+  #           repo = "mutter";
+  #           rev = "triple-buffering-v4-46";
+  #           hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+  #         };
+  #       });
+  #     });
+  #   })
+  # ];
+
   boot.extraModprobeConfig = ''
-  options snd_hda_intel power_save=0 power_save_controller=N
+    options snd_hda_intel power_save=0 power_save_controller=N
   '';
-  
+
 }
 

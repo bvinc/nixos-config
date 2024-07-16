@@ -13,13 +13,16 @@
 
   home = {
     packages = with pkgs; [
+      extremetuxracer
       gcc
       gnome3.gnome-terminal
       gnome3.gnome-tweaks
       gnome3.dconf-editor
       grc
       llvm
+      lutris-free
       nixpkgs-fmt # nix formatter
+      spotify
       steam
       traceroute
     ];
