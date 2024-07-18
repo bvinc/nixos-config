@@ -60,10 +60,10 @@
                   mutter = gnomePrev.mutter.overrideAttrs (old: {
                     src = pkgs.fetchFromGitLab {
                       domain = "gitlab.gnome.org";
-                      owner = "GNOME";
+                      owner = "vanvugt";
                       repo = "mutter";
-                      rev = "288d57f6a5b9e3568d6641439bacc184160c182c";
-                      hash = "";
+                      rev = "triple-buffering-v4-46";
+                      hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
                     };
                   });
                 });
