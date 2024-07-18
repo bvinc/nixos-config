@@ -198,22 +198,22 @@
   #   })
   # ];
 
-  nixpkgs.overlays = [
-    # GNOME 46: triple-buffering-v4-46
-    (final: prev: {
-      gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-        mutter = gnomePrev.mutter.overrideAttrs (old: {
-          src = pkgs.fetchFromGitLab {
-            domain = "gitlab.gnome.org";
-            owner = "GNOME";
-            repo = "mutter";
-            rev = "fdsa";
-            hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-          };
-        });
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   # GNOME 46: triple-buffering-v4-46
+  #   (final: prev: {
+  #     gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+  #       mutter = gnomePrev.mutter.overrideAttrs (old: {
+  #         src = pkgs.fetchFromGitLab {
+  #           domain = "gitlab.gnome.org";
+  #           owner = "GNOME";
+  #           repo = "mutter";
+  #           rev = "fdsa";
+  #           hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+  #         };
+  #       });
+  #     });
+  #   })
+  # ];
 
 
   boot.extraModprobeConfig = ''
