@@ -63,7 +63,7 @@
                       owner = "vanvugt";
                       repo = "mutter";
                       rev = "fdsafd-46";
-                      hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEff5b9mu3aS+jhH18+lpI=";
+                      hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
                     };
                   });
                 });
