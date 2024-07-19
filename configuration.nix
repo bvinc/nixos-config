@@ -71,19 +71,6 @@
     '';
   };
 
-  ###### SWAY ########
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
-  services.gnome.gnome-keyring.enable = true;
-
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  ###### END SWAY ########
-
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -115,14 +102,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-
-    ######## SWAY ########
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
-    ######## END SWAY ########
-
   ];
 
   # To allow third-party un-packaged non-static binaries to run
@@ -178,6 +157,9 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
+
+  # Needed for sway in home manager
+  security.polkit.enable = true;
 
 
   # # Enable triple buffering patch for GNOME

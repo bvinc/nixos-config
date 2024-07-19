@@ -1,0 +1,10 @@
+/* Example Waybar style */
+#clock {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#battery {
+    font-size: 18px;
+    margin-right: 10px;
+}

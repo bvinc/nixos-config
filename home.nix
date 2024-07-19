@@ -7,6 +7,7 @@
     ./firefox.nix
     ./vscode.nix
     ./shell.nix
+    ./sway.nix
   ];
 
   home.stateVersion = "24.05";
@@ -54,6 +55,17 @@
       night-light-enabled = true;
       night-light-schedule-automatic = true;
       night-light-temperature = lib.hm.gvariant.mkUint32 [ 1700 ];
+    };
+  };
+
+
+  wayland.windowManager.sway = {
+    enable = true;
+    config = rec {
+      modifier = "Mod4";
+      # Use kitty as default terminal
+      terminal = "kitty";
+
     };
   };
 }
