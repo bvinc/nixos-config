@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  swayConfig = builtins.readFile ./sway/config;
-  waybarConfig = builtins.readFile ./waybar/config;
-  waybarStyle = builtins.readFile ./waybar/style.css;
-  makoConfig = builtins.readFile ./mako/config;
-in
 {
   home.packages = with pkgs; [
     sway
@@ -13,36 +7,41 @@ in
     rofi
     lxappearance
     gnome-themes-extra
-    gnome-settings-daemon
     mako
   ];
 
-  services.gnome.gnomeSettingsDaemon.enable = true;
+  # services.gnome.gnomeSettingsDaemon.enable = true;
 
-  xdg.configFile = {
-    ".config/sway/config" = swayConfig;
-    ".config/waybar/config" = waybarConfig;
-    ".config/waybar/style.css" = waybarStyle;
-    ".config/mako/config" = makoConfig;
-  };
+  # xdg.configFile = {
+  #   ".config/sway/config" = swayConfig;
+  #   ".config/waybar/config" = waybarConfig;
+  #   ".config/waybar/style.css" = waybarStyle;
+  #   ".config/mako/config" = makoConfig;
+  # };
 
-  home.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "sway";
-  };
+  # home.sessionVariables = {
+  #   XDG_CURRENT_DESKTOP = "sway";
+  # };
 
-  programs.sway = {
+  wayland.windowManager.sway = {
     enable = true;
-    configFile = swayConfig;
+    config = {
+      floating.criteria = [
+        {
+          class = ".*";
+        }
+      ];
+    };
   };
 
-  programs.waybar = {
-    enable = true;
-    configFile = waybarConfig;
-    styleFile = waybarStyle;
-  };
+  # programs.waybar = {
+  #   enable = true;
+  #   settings = waybarConfig;
+  #   style = waybarStyle;
+  # };
 
-  programs.rofi = {
-    enable = true;
-    configFile = builtins.readFile ./rofi/config.rasi;
-  };
+  # programs.rofi = {
+  #   enable = true;
+  #   configFile = builtins.readFile ./rofi/config.rasi;
+  # };
 }
