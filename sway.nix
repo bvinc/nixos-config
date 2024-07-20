@@ -26,11 +26,20 @@
   wayland.windowManager.sway = {
     enable = true;
     config = {
+      modifier = "Mod4";
       floating.criteria = [
         {
           class = ".*";
         }
       ];
+      focus.followMouse = "no";
+      terminal = "kgx";
+      input = {
+        "*" = {
+          accel_profile = "flat"; # disable mouse acceleration
+          pointer_accel = "1.0"; # set mouse sensitivity (between -1 and 1)
+        };
+      };
     };
   };
 
