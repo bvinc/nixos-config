@@ -5,9 +5,9 @@
   imports = [
     ./dark_mode.nix
     ./firefox.nix
-    ./vscode.nix
-    ./shell.nix
+    ./fish.nix
     ./sway.nix
+    ./vscode.nix
   ];
 
   home.stateVersion = "24.05";
