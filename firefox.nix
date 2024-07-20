@@ -54,6 +54,7 @@ in
         "browser.topsites.contile.enabled" = lock-false;
         "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
         "browser.urlbar.suggest.searches" = lock-false;
+        "dom.private-attribution.submission.enabled" = lock-false;
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshots.disabled" = lock-true;
       };
