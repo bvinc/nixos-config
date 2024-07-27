@@ -59,7 +59,7 @@
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-timeout = lib.hm.gvariant.mkUint32 [ 1800 ]; # 30 minutes
+      sleep-inactive-ac-timeout = lib.hm.gvariant.mkInt32 [ 1800 ]; # 30 minutes
     };
 
     "org/gnome/desktop/screensaver" = {
