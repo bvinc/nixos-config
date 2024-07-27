@@ -13,6 +13,7 @@
   home.stateVersion = "24.05";
 
   home = {
+    enableDebugInfo = true;
     packages = with pkgs; [
       extremetuxracer
       gcc
@@ -55,6 +56,14 @@
       night-light-enabled = true;
       night-light-schedule-automatic = true;
       night-light-temperature = lib.hm.gvariant.mkUint32 [ 1700 ];
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-timeout = lib.hm.gvariant.mkUint32 [ 1800 ]; # 30 minutes
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      lock-delay = lib.hm.gvariant.mkUint32 [ 1800 ]; # 30 minutes
     };
   };
 }
