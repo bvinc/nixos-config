@@ -78,7 +78,14 @@
   services.libinput.mouse.accelProfile = "flat";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
+
+  # To detect printers
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 
   # Enable sound.
   hardware.pulseaudio.enable = false;
