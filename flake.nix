@@ -98,9 +98,7 @@
               # GNOME 46: triple-buffering-v4-46
               (final: prev: {
                 gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-                  mutter = gnomePrev.mutter.overrideAttrs (old: {
-                    src = local-mutter;
-                  });
+                  mutter = gnomePrev.mutter.overrideAttrs (old: local-mutter);
                 });
               })
             ];
