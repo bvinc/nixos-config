@@ -17,6 +17,23 @@
         "url": "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz"
       }
     },
+    "local-mutter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-SxRL3ikpU6BeBLCb3UpCNtFbgRvYOyztnL6J3mPHxRU=",
+        "path": "/home/brain/src/mutter",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/brain/src/mutter",
+        "type": "path"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1723282977,
@@ -36,6 +53,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "local-mutter": "local-mutter",
         "nixpkgs": "nixpkgs",
         "unstable": "unstable"
       }
