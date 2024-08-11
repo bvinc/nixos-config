@@ -67,4 +67,20 @@ in
     "x-scheme-handler/http" = [ "firefox.desktop" ];
     "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
+
+  home.file.".mozilla/managed-storage/uBlock0@raymondhill.net.json".text =
+    builtins.toJSON {
+      name = "uBlock0@raymondhill.net";
+      description = "_";
+      type = "storage";
+      data = {
+        adminSettings = {
+          userFilters = ''
+            www.youtube.com###related
+            www.youtube.com##.ytp-pause-overlay
+            www.youtube.com##.ytp-endscreen-content
+          '';
+        };
+      };
+    };
 }
