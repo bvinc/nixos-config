@@ -19,7 +19,7 @@
       set fish_greeting # Disable greeting
       theme_gruvbox dark hard
       abbr nrs sudo nixos-rebuild switch --flake ~/.config/nixos-config
-      source "$HOME/.cargo/env.fish"
+      if test -f "$HOME/.cargo/env.fish"; source "$HOME/.cargo/env.fish"; end
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
