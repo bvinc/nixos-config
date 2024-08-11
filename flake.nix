@@ -14,12 +14,31 @@
       pkgs = import nixpkgs { inherit system; };
     in
     {
+      nixosConfigurations.werm = nixpkgs.lib.nixosSystem {
+        system = system;
+        modules = [
+          # Import the previous configuration.nix we used,
+          # so the old configuration file still takes effect
+          ./werm/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.brain = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+          {
+          }
+        ];
+      };
       nixosConfigurations.xenu = nixpkgs.lib.nixosSystem {
         system = system;
         modules = [
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
-          ./configuration.nix
+          ./xenu/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -53,22 +72,22 @@
             #   })
             # ];
             # Enable triple buffering patch for GNOME
-            nixpkgs.overlays = [
-              # GNOME 46: triple-buffering-v4-46
-              (final: prev: {
-                gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-                  mutter = gnomePrev.mutter.overrideAttrs (old: {
-                    src = pkgs.fetchFromGitLab {
-                      domain = "gitlab.gnome.org";
-                      owner = "vanvugt";
-                      repo = "mutter";
-                      rev = "triple-buffering-v4-46";
-                      hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-                    };
-                  });
-                });
-              })
-            ];
+#            nixpkgs.overlays = [
+#              # GNOME 46: triple-buffering-v4-46
+#              (final: prev: {
+#                gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+#                  mutter = gnomePrev.mutter.overrideAttrs (old: {
+#                    src = pkgs.fetchFromGitLab {
+#                      domain = "gitlab.gnome.org";
+#                      owner = "vanvugt";
+#                      repo = "mutter";
+#                      rev = "triple-buffering-v4-46";
+#                      hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+#                    };
+#                  });
+#                });
+#              })
+#            ];
 
           }
         ];
