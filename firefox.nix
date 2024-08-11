@@ -79,6 +79,10 @@ in
             www.youtube.com###related
             www.youtube.com##.ytp-pause-overlay
             www.youtube.com##.ytp-endscreen-content
+            www.youtube-nocookie.com###related
+            www.youtube-nocookie.com##.ytp-pause-overlay
+            www.youtube-nocookie.com##.ytp-endscreen-content
+
           '';
         };
       };
