@@ -22,7 +22,7 @@ in
       DisableAccounts = true;
       DontCheckDefaultBrowser = true;
       ExtensionSettings = {
-        "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+        # "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
         # uBlock Origin:
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
@@ -82,7 +82,6 @@ in
             www.youtube-nocookie.com###related
             www.youtube-nocookie.com##.ytp-pause-overlay
             www.youtube-nocookie.com##.ytp-endscreen-content
-
           '';
         };
       };

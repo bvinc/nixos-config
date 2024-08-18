@@ -15,18 +15,23 @@
   home = {
     enableDebugInfo = true;
     packages = with pkgs; [
+      curl
       extremetuxracer
+      file
       gcc
       gnome3.gnome-terminal
       gnome3.gnome-tweaks
       gnome3.dconf-editor
       grc
+      killall
       llvm
       lutris-free
       nixpkgs-fmt # nix formatter
       spotify
       steam
       traceroute
+      unzip
+      wget
     ];
   };
 
