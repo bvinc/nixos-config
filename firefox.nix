@@ -82,6 +82,7 @@ in
             www.youtube-nocookie.com###related
             www.youtube-nocookie.com##.ytp-pause-overlay
             www.youtube-nocookie.com##.ytp-endscreen-content
+            www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-renderer.style-scope
           '';
         };
       };
