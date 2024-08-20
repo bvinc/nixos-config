@@ -2,7 +2,7 @@
 let
   no-rgb = pkgs.writeScriptBin "no-rgb" ''
     #!/bin/sh
-    openrgb --nodetect --color 000000
+    ${pkgs.openrgb}/bin/openrgb --nodetect --color 000000
   '';
 in
 {
