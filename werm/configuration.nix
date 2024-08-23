@@ -32,6 +32,19 @@
   boot.initrd.luks.devices."swap" = {
     device = "/dev/nvme0n1p3";
   };
+  boot.initrd.luks.devices."root" = {
+    allowDiscards = true;
+  };
+
+  # Prevent /boot from filling up
+  boot.loader.grub.configurationLimit = 5;
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 30d";
+  };
+
+  boot.tmp.cleanOnBoot = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -39,6 +52,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.wifi.backend = "iwd";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -54,6 +68,9 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+
+  # use faster dbus implementation
+  services.dbus.implementation = "broker";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -123,6 +140,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.fstrim.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -201,10 +220,25 @@
   #   })
   # ];
 
+  # https://nixos.org/manual/nixos/stable/index.html#sec-upgrading-automatic
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
+  # Disable root password
+  users.users.root.hashedPassword = "*";
+
+  # Disable password login
+  services.openssh.settings.PermitRootLogin = "no";
+  services.openssh.settings.PasswordAuthentication = false;
 
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 
 }
 
