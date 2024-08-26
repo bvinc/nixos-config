@@ -6,13 +6,13 @@
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    local-mutter = {
-      url = "path:/home/brain/src/mutter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # local-mutter = {
+    #   url = "path:/home/brain/src/mutter";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = { nixpkgs, home-manager, unstable, local-mutter, ... }@inputs:
+  outputs = { nixpkgs, home-manager, unstable, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };

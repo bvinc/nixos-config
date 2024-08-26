@@ -32,7 +32,7 @@
   boot.initrd.luks.devices."swap" = {
     device = "/dev/nvme0n1p3";
   };
-  boot.initrd.luks.devices."root" = {
+  boot.initrd.luks.devices."luks-0b0b865a-f1c9-472c-8838-6a45ed6aec5f" = {
     allowDiscards = true;
   };
 
