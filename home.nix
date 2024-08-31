@@ -56,6 +56,14 @@
       name = "Open Console";
     };
 
+    # Fix alt-tab
+    "org/gnome/desktop/wm/keybindings" = {
+      "switch-applications" = [ ];
+      "switch-application-backward" = [ ];
+      "switch-windows" = [ "<Alt>Tab" "<Super>Tab" ];
+      "switch-windows-backward" = [ "<Shift><Alt>Tab" "<Super><Shift>Tab" ];
+    };
+
     # Night light on, sunset to sunrise, warmest settings
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
