@@ -3,11 +3,11 @@
 
 {
   imports = [
-    ./dark_mode.nix
-    ./firefox.nix
-    ./fish.nix
-    ./sway.nix
-    ./vscode.nix
+    ./modules/home-manager/dark_mode.nix
+    ./modules/home-manager/firefox.nix
+    ./modules/home-manager/fish.nix
+    ./modules/home-manager/sway.nix
+    ./modules/home-manager/vscode.nix
   ];
 
   home.stateVersion = "24.05";
