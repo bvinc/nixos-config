@@ -27,6 +27,11 @@
       llvm
       lutris-free
       nixpkgs-fmt # nix formatter
+<<<<<<< HEAD
+=======
+      openssl
+      pkg-config
+>>>>>>> c43f9e7 (wip)
       ripgrep
       spotify
       steam
