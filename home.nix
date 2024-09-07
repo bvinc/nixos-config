@@ -33,6 +33,7 @@
       nixpkgs-fmt # nix formatter
       openssl
       pkg-config
+      ripgrep
       spotify
       steam
       traceroute
