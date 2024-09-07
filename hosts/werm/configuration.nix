@@ -118,11 +118,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cmake
+    expat
+    freetype
     gdb
+    gtk4
     killall
+    openssl
+    pkg-config
+    git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    git
   ];
 
   # To allow third-party un-packaged non-static binaries to run

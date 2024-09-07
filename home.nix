@@ -15,24 +15,18 @@
   home = {
     enableDebugInfo = true;
     packages = with pkgs; [
-      cmake
       curl
-      expat
       extremetuxracer
       file
-      freetype
       gcc
       gnome3.gnome-terminal
       gnome3.gnome-tweaks
       gnome3.dconf-editor
       grc
-      gtk4
       killall
       llvm
       lutris-free
       nixpkgs-fmt # nix formatter
-      openssl
-      pkg-config
       spotify
       steam
       traceroute
