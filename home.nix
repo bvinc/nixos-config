@@ -10,7 +10,7 @@
     ./modules/home-manager/vscode.nix
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   home = {
     enableDebugInfo = true;
@@ -22,9 +22,9 @@
       file
       freetype
       gcc
-      gnome3.gnome-terminal
-      gnome3.gnome-tweaks
-      gnome3.dconf-editor
+      gnome-terminal
+      gnome-tweaks
+      dconf-editor
       grc
       gtk4
       killall

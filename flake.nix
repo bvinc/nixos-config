@@ -2,9 +2,8 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # local-mutter = {
     #   url = "path:/home/brain/src/mutter";
@@ -12,7 +11,7 @@
     # };
   };
 
-  outputs = { nixpkgs, home-manager, unstable, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
