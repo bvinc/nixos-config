@@ -180,6 +180,10 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
+  # Enable podman for toolbox
+  virtualisation.podman.enable = true;
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   # Needed for sway in home manager
   security.polkit.enable = true;
