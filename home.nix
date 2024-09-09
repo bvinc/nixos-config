@@ -27,6 +27,7 @@
       llvm
       lutris-free
       nixpkgs-fmt # nix formatter
+      ripgrep
       spotify
       steam
       traceroute
