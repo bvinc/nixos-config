@@ -10,6 +10,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       #./openrgb.nix
+      ../../modules/nixos/kde.nix
     ];
 
   hardware = {
@@ -243,6 +244,8 @@
     enable = true;
     algorithm = "zstd";
   };
+
+
 
 }
 
