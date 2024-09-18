@@ -10,10 +10,14 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       #./openrgb.nix
+
+      ../../modules/nixos/configuration.nix
       ../../modules/nixos/hyprland.nix
       ../../modules/nixos/kde.nix
       ../../modules/nixos/sway.nix
     ];
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware = {
     opengl.enable = true;
