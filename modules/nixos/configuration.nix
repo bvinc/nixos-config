@@ -11,6 +11,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # use faster dbus implementation
+  services.dbus.implementation = "broker";
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
   # Enable firmware upgrades
   services.fwupd.enable = true;
 }
