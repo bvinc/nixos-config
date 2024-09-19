@@ -24,4 +24,16 @@
 
   # Enable firmware upgrades
   services.fwupd.enable = true;
+
+  # https://nixos.org/manual/nixos/stable/index.html#sec-upgrading-automatic
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
+  # Disable root password
+  users.users.root.hashedPassword = "*";
+
+  # Disable password login
+  services.openssh.settings.PermitRootLogin = "no";
+  services.openssh.settings.PasswordAuthentication = false;
+
 }

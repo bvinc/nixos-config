@@ -200,17 +200,6 @@
   #   })
   # ];
 
-  # https://nixos.org/manual/nixos/stable/index.html#sec-upgrading-automatic
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
-
-  # Disable root password
-  users.users.root.hashedPassword = "*";
-
-  # Disable password login
-  services.openssh.settings.PermitRootLogin = "no";
-  services.openssh.settings.PasswordAuthentication = false;
-
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
