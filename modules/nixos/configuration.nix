@@ -2,6 +2,9 @@
 
   imports = [
     ./gnome.nix
+    ./hyprland.nix
+    ./kde.nix
+    ./sway.nix
   ];
 
   # Prevent /boot from filling up
