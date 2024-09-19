@@ -1,4 +1,9 @@
 { pkgs, ... }: {
+
+  imports = [
+    ./gnome.nix
+  ];
+
   # Prevent /boot from filling up
   boot.loader.grub.configurationLimit = 5;
   nix.gc = {
