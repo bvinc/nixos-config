@@ -13,8 +13,6 @@
       ../../modules/nixos/configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   hardware = {
     opengl.enable = true;
     opengl.driSupport = true;

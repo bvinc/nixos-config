@@ -15,6 +15,7 @@
   home = {
     enableDebugInfo = true;
     packages = with pkgs; [
+      bottles
       curl
       extremetuxracer
       file
@@ -27,6 +28,7 @@
       llvm
       lutris-free
       nixpkgs-fmt # nix formatter
+      pciutils
       ripgrep
       spotify
       steam

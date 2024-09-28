@@ -16,6 +16,7 @@ in
     serviceConfig = {
       ExecStart = "${no-rgb}/bin/no-rgb";
       Type = "oneshot";
+      After = "openrgb";
     };
     wantedBy = [ "multi-user.target" ];
   };
