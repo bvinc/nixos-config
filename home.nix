@@ -7,7 +7,6 @@
     ./modules/home-manager/firefox.nix
     ./modules/home-manager/fish.nix
     ./modules/home-manager/sway.nix
-    ./modules/home-manager/vscode.nix
   ];
 
   home.stateVersion = "24.05";
@@ -17,6 +16,7 @@
     packages = with pkgs; [
       bottles
       curl
+      direnv
       extremetuxracer
       file
       gcc

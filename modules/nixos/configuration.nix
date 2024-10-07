@@ -5,6 +5,7 @@
     ./hyprland.nix
     ./kde.nix
     ./sway.nix
+    ./vscode.nix
   ];
 
   # Prevent /boot from filling up

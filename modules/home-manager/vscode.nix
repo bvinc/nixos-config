@@ -14,7 +14,6 @@
       "workbench.colorTheme" = "Panda Syntax";
       "editor.formatOnSave" = true;
       "rust-analyzer.imports.granularity.group" = "module";
-
     };
   };
 }
