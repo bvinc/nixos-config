@@ -38,7 +38,12 @@
     ];
   };
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Brian Vincent";
+    userEmail = "brainn@gmail.com";
+  };
+
   programs.zsh.enable = true;
 
   dconf.settings = {
