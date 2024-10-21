@@ -38,4 +38,15 @@
   # Disable password login
   services.openssh.settings.PermitRootLogin = "no";
   services.openssh.settings.PasswordAuthentication = false;
+
+  # Auto-discover printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
 }

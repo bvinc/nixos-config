@@ -65,9 +65,6 @@
 
   services.libinput.mouse.accelProfile = "flat";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   hardware.pulseaudio.enable = false;
   services.pipewire = {
