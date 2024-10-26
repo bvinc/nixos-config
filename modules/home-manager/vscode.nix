@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
+    enableUpdateCheck = false;
+    mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       jnoortheen.nix-ide
