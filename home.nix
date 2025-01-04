@@ -21,9 +21,9 @@
       extremetuxracer
       file
       gcc
-      gnome3.gnome-terminal
-      gnome3.gnome-tweaks
-      gnome3.dconf-editor
+      gnome-terminal
+      gnome-tweaks
+      dconf-editor
       grc
       killall
       llvm

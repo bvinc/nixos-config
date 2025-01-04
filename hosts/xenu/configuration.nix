@@ -13,17 +13,19 @@
       ../../modules/nixos/configuration.nix
     ];
 
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
   hardware = {
-    opengl.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+    graphics.extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
     ];
-    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
+    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
   };
 
   # Use the systemd-boot EFI boot loader.
