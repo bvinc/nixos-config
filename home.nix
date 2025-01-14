@@ -17,16 +17,18 @@
     packages = with pkgs; [
       bottles
       curl
+      dconf-editor
       direnv
       extremetuxracer
       file
       gcc
       gnome-terminal
       gnome-tweaks
-      dconf-editor
       grc
+      intel-gpu-tools
       killall
       llvm
+      lm_sensors
       lutris-free
       nixpkgs-fmt # nix formatter
       pciutils
