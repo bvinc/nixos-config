@@ -71,6 +71,13 @@ in
         "toolkit.telemetry.updatePing.enabled" = lock-false;
         "toolkit.telemetry.user_characteristics_ping.opt-out" = lock-true;
       };
+      WebsiteFilter = {
+        Block = [
+          "*://*.reddit.com/"
+          "*://*.reddit.com/r/all/*"
+          "*://*.reddit.com/r/popular/*"
+        ];
+      };
     };
   };
 

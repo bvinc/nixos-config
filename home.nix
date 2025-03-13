@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
-
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -30,6 +34,7 @@
       llvm
       lm_sensors
       lutris-free
+      nixfmt-rfc-style # nix formatter
       nixpkgs-fmt # nix formatter
       pciutils
       ripgrep
@@ -72,8 +77,14 @@
     "org/gnome/desktop/wm/keybindings" = {
       "switch-applications" = [ ];
       "switch-application-backward" = [ ];
-      "switch-windows" = [ "<Alt>Tab" "<Super>Tab" ];
-      "switch-windows-backward" = [ "<Shift><Alt>Tab" "<Super><Shift>Tab" ];
+      "switch-windows" = [
+        "<Alt>Tab"
+        "<Super>Tab"
+      ];
+      "switch-windows-backward" = [
+        "<Shift><Alt>Tab"
+        "<Super><Shift>Tab"
+      ];
     };
 
     # Night light on, sunset to sunrise, warmest settings
@@ -92,5 +103,3 @@
     };
   };
 }
-
-

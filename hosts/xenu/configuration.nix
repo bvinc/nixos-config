@@ -13,8 +13,8 @@
       ../../modules/nixos/configuration.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   hardware = {
     graphics.enable = true;
