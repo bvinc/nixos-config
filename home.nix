@@ -55,6 +55,18 @@
 
   programs.zsh.enable = true;
 
+  dconf = {
+    enable = true;
+    settings."org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        appindicator.extensionUuid
+        blur-my-shell.extensionUuid
+        gsconnect.extensionUuid
+      ];
+    };
+  };
+
   dconf.settings = {
     # Blank Screen Delay
     "org/gnome/desktop/session" = {
@@ -91,7 +103,7 @@
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
       night-light-schedule-automatic = true;
-      night-light-temperature = lib.hm.gvariant.mkUint32 [ 1700 ];
+      night-light-temperature = lib.hm.gvariant.mkUint32 [ 2700 ];
     };
 
     "org/gnome/settings-daemon/plugins/power" = {

@@ -2,19 +2,28 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./openrgb.nix
-      ../../modules/nixos/configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./openrgb.nix
+    ../../modules/nixos/configuration.nix
+  ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_6_6;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
+
+  # boot.kernelParams = [
+  #   "i915.force_probe=!56a0"
+  #   "xe.force_probe=56a0"
+  # ];
 
   hardware = {
     graphics.enable = true;
@@ -24,8 +33,13 @@
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
+      vpl-gpu-rt
+      intel-compute-runtime
     ];
-    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
+    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [
+      intel-media-driver
+      vaapiIntel
+    ];
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -91,16 +105,6 @@
 
   environment.enableDebugInfo = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gdb
-    killall
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-  ];
-
   # To allow third-party un-packaged non-static binaries to run
   programs.nix-ld.enable = true;
 
@@ -119,8 +123,8 @@
   services.fstrim.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 51413 ];
+  networking.firewall.allowedUDPPorts = [ 51413 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -149,7 +153,10 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   # Enable flakes support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable virt-manager
   virtualisation.libvirtd.enable = true;
@@ -162,7 +169,6 @@
 
   # Needed for sway in home manager
   security.polkit.enable = true;
-
 
   # # Enable triple buffering patch for GNOME
   # nixpkgs.overlays = [
@@ -204,4 +210,3 @@
   '';
 
 }
-
