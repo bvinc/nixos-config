@@ -20,6 +20,7 @@
     enableDebugInfo = true;
     packages = with pkgs; [
       bottles
+      calibre
       curl
       dconf-editor
       direnv
