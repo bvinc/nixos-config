@@ -21,7 +21,14 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgsUnstable = import unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.werm = nixpkgs.lib.nixosSystem {
@@ -34,6 +41,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              unstable = pkgsUnstable;
+            };
             home-manager.users.brain = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
@@ -52,6 +62,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              unstable = pkgsUnstable;
+            };
             home-manager.users.brain = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass

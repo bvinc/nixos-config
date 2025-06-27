@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstable,
   lib,
   ...
 }:
@@ -18,34 +19,39 @@
 
   home = {
     enableDebugInfo = true;
-    packages = with pkgs; [
-      bottles
-      calibre
-      curl
-      dconf-editor
-      direnv
-      extremetuxracer
-      file
-      gcc
-      gnome-terminal
-      gnome-tweaks
-      grc
-      intel-gpu-tools
-      killall
-      llvm
-      lm_sensors
-      lutris-free
-      nixfmt-rfc-style # nix formatter
-      nixpkgs-fmt # nix formatter
-      pciutils
-      ripgrep
-      spotify
-      steam
-      traceroute
-      transmission_4-gtk
-      unzip
-      wget
-    ];
+    packages =
+      with pkgs;
+      [
+        bottles
+        calibre
+        curl
+        dconf-editor
+        direnv
+        extremetuxracer
+        file
+        gcc
+        gnome-terminal
+        gnome-tweaks
+        grc
+        intel-gpu-tools
+        killall
+        llvm
+        lm_sensors
+        lutris-free
+        nixfmt-rfc-style # nix formatter
+        nixpkgs-fmt # nix formatter
+        pciutils
+        ripgrep
+        spotify
+        steam
+        traceroute
+        transmission_4-gtk
+        unzip
+        wget
+      ]
+      ++ [
+        unstable.claude-code # the one line you need
+      ];
   };
 
   programs.git = {
