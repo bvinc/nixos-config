@@ -35,7 +35,10 @@ in
         };
       };
       Preferences = {
-        "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+        "browser.contentblocking.category" = {
+          Value = "strict";
+          Status = "locked";
+        };
         "browser.formfill.enable" = lock-false;
         "browser.newtabpage.activity-stream.discoverystream.personalization.enabled" = lock-false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
@@ -73,9 +76,9 @@ in
       };
       WebsiteFilter = {
         Block = [
-          "*://*.reddit.com/"
-          "*://*.reddit.com/r/all/*"
-          "*://*.reddit.com/r/popular/*"
+          "*://(www|old).reddit.com/"
+          "*://(www|old).reddit.com/r/all/*"
+          "*://(www|old).reddit.com/r/popular/*"
         ];
       };
     };
@@ -88,23 +91,22 @@ in
     "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 
-  home.file.".mozilla/managed-storage/uBlock0@raymondhill.net.json".text =
-    builtins.toJSON {
-      name = "uBlock0@raymondhill.net";
-      description = "_";
-      type = "storage";
-      data = {
-        adminSettings = {
-          userFilters = ''
-            www.youtube.com###related
-            www.youtube.com##.ytp-pause-overlay
-            www.youtube.com##.ytp-endscreen-content
-            www.youtube-nocookie.com###related
-            www.youtube-nocookie.com##.ytp-pause-overlay
-            www.youtube-nocookie.com##.ytp-endscreen-content
-            www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-renderer.style-scope
-          '';
-        };
+  home.file.".mozilla/managed-storage/uBlock0@raymondhill.net.json".text = builtins.toJSON {
+    name = "uBlock0@raymondhill.net";
+    description = "_";
+    type = "storage";
+    data = {
+      adminSettings = {
+        userFilters = ''
+          www.youtube.com###related
+          www.youtube.com##.ytp-pause-overlay
+          www.youtube.com##.ytp-endscreen-content
+          www.youtube-nocookie.com###related
+          www.youtube-nocookie.com##.ytp-pause-overlay
+          www.youtube-nocookie.com##.ytp-endscreen-content
+          www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-renderer.style-scope
+        '';
       };
     };
+  };
 }
