@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.bash.enable = true;
   programs.bash = {
     # Switch to fish if its an interactive shell
@@ -11,8 +12,6 @@
     '';
   };
 
-
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -23,9 +22,18 @@
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
-      { name = "autopair"; src = pkgs.fishPlugins.autopair.src; }
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "gruvbox"; src = pkgs.fishPlugins.gruvbox.src; }
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "gruvbox";
+        src = pkgs.fishPlugins.gruvbox.src;
+      }
 
       # Manually packaging and enable a plugin
       {
