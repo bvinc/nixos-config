@@ -32,6 +32,7 @@
         gcc
         gnome-terminal
         gnome-tweaks
+        google-chrome
         grc
         intel-gpu-tools
         killall
