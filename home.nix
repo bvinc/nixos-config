@@ -24,6 +24,7 @@
       [
         bottles
         calibre
+        codex
         curl
         dconf-editor
         direnv
