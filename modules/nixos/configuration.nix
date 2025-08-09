@@ -9,7 +9,7 @@
   ];
 
   # Prevent /boot from filling up
-  boot.loader.grub.configurationLimit = 5;
+  boot.loader.systemd-boot.configurationLimit = 5;
   nix.gc = {
     automatic = true;
     randomizedDelaySec = "14m";

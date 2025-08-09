@@ -19,14 +19,16 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware = {
-    opengl.enable = true;
-    opengl.extraPackages = with pkgs; [
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+
+    graphics.extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
     ];
-    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
+    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
   };
 
   # Use the systemd-boot EFI boot loader.

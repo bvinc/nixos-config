@@ -79,13 +79,6 @@
 
   services.libinput.mouse.accelProfile = "flat";
 
-  # To detect printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
   # Enable sound.
   services.pulseaudio.enable = false;
   services.pipewire = {

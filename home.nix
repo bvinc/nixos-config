@@ -79,7 +79,7 @@
   dconf.settings = {
     # Blank Screen Delay
     "org/gnome/desktop/session" = {
-      idle-delay = lib.hm.gvariant.mkUint32 [ 900 ]; # 15 minutes
+      idle-delay = lib.hm.gvariant.mkUint32 900; # 15 minutes
     };
 
     # Custom Keyboard Shortcuts
@@ -112,15 +112,15 @@
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
       night-light-schedule-automatic = true;
-      night-light-temperature = lib.hm.gvariant.mkUint32 [ 2700 ];
+      night-light-temperature = lib.hm.gvariant.mkUint32 2700;
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-timeout = lib.hm.gvariant.mkInt32 [ 1800 ]; # 30 minutes
+      sleep-inactive-ac-timeout = lib.hm.gvariant.mkInt32 1800; # 30 minutes
     };
 
     "org/gnome/desktop/screensaver" = {
-      lock-delay = lib.hm.gvariant.mkUint32 [ 1800 ]; # 30 minutes
+      lock-delay = lib.hm.gvariant.mkUint32 1800; # 30 minutes
     };
   };
 }
