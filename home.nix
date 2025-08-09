@@ -41,6 +41,7 @@
         lm_sensors
         lutris-free
         nixfmt-rfc-style # nix formatter
+        openai
         pciutils
         ripgrep
         spotify
