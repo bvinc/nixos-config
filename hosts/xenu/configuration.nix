@@ -18,7 +18,6 @@
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
 
   # boot.kernelParams = [
   #   "i915.force_probe=!56a0"

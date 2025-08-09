@@ -18,7 +18,7 @@
   home.stateVersion = "24.05";
 
   home = {
-    enableDebugInfo = true;
+    # enableDebugInfo = true;
     packages =
       with pkgs;
       [
