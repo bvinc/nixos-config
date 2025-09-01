@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 {
 
   imports = [
@@ -30,8 +34,11 @@
   services.fwupd.enable = true;
 
   # https://nixos.org/manual/nixos/stable/index.html#sec-upgrading-automatic
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+    flake = "github:bvinc/nixos-config#" + config.networking.hostName;
+  };
 
   # Disable root password
   users.users.root.hashedPassword = "*";
