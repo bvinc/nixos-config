@@ -16,22 +16,24 @@ in
     mutableExtensionsDir = true;
     profiles.default = {
       enableUpdateCheck = false;
-      extensions = (with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
-        jnoortheen.nix-ide
-        ms-python.python
-        ms-vscode-remote.remote-ssh
-        rust-lang.rust-analyzer
-        tamasfe.even-better-toml
-        yzhang.markdown-all-in-one
-      ]) ++ pandaTheme;
+      extensions =
+        (with pkgs.vscode-extensions; [
+          dracula-theme.theme-dracula
+          jnoortheen.nix-ide
+          ms-python.python
+          ms-vscode-remote.remote-ssh
+          rust-lang.rust-analyzer
+          tamasfe.even-better-toml
+          yzhang.markdown-all-in-one
+        ])
+        ++ pandaTheme;
       userSettings = {
-        "telemetry.telemetryLevel" = "off";
+        "editor.formatOnSave" = true;
         "editor.inlayHints.enabled" = "offUnlessPressed";
         "rust-analyzer.check.command" = "clippy";
-        "workbench.colorTheme" = "Panda Syntax";
-        "editor.formatOnSave" = true;
         "rust-analyzer.imports.granularity.group" = "module";
+        "telemetry.telemetryLevel" = "off";
+        "workbench.colorTheme" = "Panda Syntax";
       };
     };
   };
