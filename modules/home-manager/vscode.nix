@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   # Panda Syntax theme (publisher: tinkertrain) from the VS Code Marketplace.
-  # Leave sha256 as lib.fakeHash initially; Nix will print the real hash on first build.
   pandaTheme = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     {
       name = "theme-panda";
