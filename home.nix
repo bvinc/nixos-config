@@ -20,40 +20,51 @@
 
   home = {
     # enableDebugInfo = true;
-    packages =
-      with pkgs;
-      [
-        bottles
-        calibre
-        curl
-        dconf-editor
-        direnv
-        extremetuxracer
-        file
-        gcc
-        gnome-terminal
-        gnome-tweaks
-        google-chrome
-        grc
-        intel-gpu-tools
-        killall
-        llvm
-        lm_sensors
-        lutris-free
-        nixfmt-rfc-style # nix formatter
-        openai
-        pciutils
-        ripgrep
-        spotify
-        steam
-        traceroute
-        transmission_4-gtk
-        unzip
-        wget
-      ]
-      ++ [
-        unstable.claude-code # the one line you need
-      ];
+    packages = with pkgs; [
+      bottles
+      calibre
+      curl
+      dconf-editor
+      direnv
+      extremetuxracer
+      file
+      gcc
+      gnome-terminal
+      gnome-tweaks
+      google-chrome
+      grc
+      intel-gpu-tools
+      killall
+      llvm
+      lm_sensors
+      lutris-free
+      nixfmt-rfc-style # nix formatter
+      openai
+      pciutils
+      ripgrep
+      spotify
+      steam
+      traceroute
+      transmission_4-gtk
+      unzip
+      wget
+
+      (pkgs.writeShellApplication {
+        name = "codex";
+        runtimeInputs = [ pkgs.nodejs_22 ];
+        text = ''
+          exec npx @openai/codex "$@"
+        '';
+      })
+      (pkgs.writeShellApplication {
+        name = "claude-code";
+        runtimeInputs = [ pkgs.nodejs_22 ];
+        text = ''
+          exec npx @anthropic-ai/claude-code "$@"
+        '';
+      })
+
+    ];
   };
 
   codex.enable = true;
