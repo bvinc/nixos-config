@@ -8,6 +8,7 @@
 
 {
   imports = [
+    ./modules/home-manager/codex.nix
     ./modules/home-manager/dark_mode.nix
     ./modules/home-manager/firefox.nix
     ./modules/home-manager/fish.nix
@@ -24,7 +25,6 @@
       [
         bottles
         calibre
-        codex
         curl
         dconf-editor
         direnv
@@ -55,6 +55,8 @@
         unstable.claude-code # the one line you need
       ];
   };
+
+  codex.enable = true;
 
   programs.git = {
     enable = true;
