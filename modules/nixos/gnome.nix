@@ -13,4 +13,10 @@
         speed = 1.00
     '';
   };
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.just-perfection
+    gnomeExtensions.arc-menu
+  ];
 }
