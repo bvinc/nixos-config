@@ -21,18 +21,9 @@
           set -euo pipefail
 
           dir="."
-          kind="--bin"
-          do_cargo=1
 
           for arg in "$@"; do
             case "$arg" in
-              --lib) kind="--lib" ;;
-              --bin) kind="--bin" ;;
-              --no-cargo) do_cargo=0 ;;
-              -h|--help)
-                echo "Usage: nix-rs-init [DIR] [--lib|--bin] [--no-cargo]"
-                exit 0
-                ;;
               *)
                 dir="$arg"
                 ;;
@@ -41,10 +32,6 @@
 
           mkdir -p "$dir"
           cd "$dir"
-
-          if [[ $do_cargo -eq 1 && ! -f Cargo.toml ]]; then
-            cargo init $kind --vcs=git
-          fi
 
           [[ -f .gitignore ]] || cat > .gitignore <<'EOF'
           /target
