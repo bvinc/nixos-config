@@ -12,6 +12,7 @@
     ./modules/home-manager/dark_mode.nix
     ./modules/home-manager/firefox.nix
     ./modules/home-manager/fish.nix
+    ./modules/home-manager/nix-rs-init.nix
     ./modules/home-manager/sway.nix
     ./modules/home-manager/vscode.nix
   ];
@@ -69,6 +70,7 @@
   };
 
   codex.enable = true;
+  nix-rs-init.enable = true;
 
   programs.git = {
     enable = true;
