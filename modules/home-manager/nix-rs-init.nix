@@ -55,7 +55,7 @@
               flake-utils.lib.eachDefaultSystem (system:
                 let
                   pkgs = import nixpkgs { inherit system; };
-                  toolchain = fenix.packages.''${system}.stable.toolchain.withComponents [
+                  toolchain = fenix.packages.''${system}.stable.withComponents [
                         "cargo"
                         "clippy"
                         "rust-src"
