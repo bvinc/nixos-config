@@ -34,6 +34,7 @@
       google-chrome
       grc
       intel-gpu-tools
+      jujutsu
       killall
       llvm
       lm_sensors
