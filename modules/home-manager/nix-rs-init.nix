@@ -42,35 +42,32 @@
 
           [[ -f flake.nix ]] || cat > flake.nix <<'EOF'
           {
+            description = "Rust dev env with fenix";
+
             inputs = {
-              fenix = {
-                url = "github:nix-community/fenix";
-                inputs.nixpkgs.follows = "nixpkgs";
-              };
-              nixpkgs.url = "nixpkgs/nixos-unstable";
+              nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+              fenix.url = "github:nix-community/fenix";
+              fenix.inputs.nixpkgs.follows = "nixpkgs";
+              flake-utils.url = "github:numtide/flake-utils";
             };
 
-            outputs = { self, fenix, nixpkgs }: {
-              packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
-              nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                modules = [
-                  ({ pkgs, ... }: {
-                    nixpkgs.overlays = [ fenix.overlays.default ];
-                    environment.systemPackages = with pkgs; [
-                      (fenix.complete.withComponents [
+            outputs = { self, nixpkgs, fenix, flake-utils, ... }:
+              flake-utils.lib.eachDefaultSystem (system:
+                let
+                  pkgs = import nixpkgs { inherit system; };
+                  toolchain = fenix.packages.''${system}.stable.toolchain.withComponents [
                         "cargo"
                         "clippy"
                         "rust-src"
                         "rustc"
                         "rustfmt"
-                      ])
-                      rust-analyzer-nightly
-                    ];
-                  })
-                ];
-              };
-            };
+                  ];
+                  ra = fenix.packages.''${system}.rust-analyzer;
+                in {
+                  devShells.default = pkgs.mkShell {
+                    buildInputs = [ toolchain ra ];
+                  };
+                });
           }
           EOF
 
