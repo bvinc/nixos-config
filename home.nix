@@ -69,6 +69,7 @@
       ])
       ++ (with unstable; [
         code-cursor
+        cursor-cli
         spotify
       ]);
   };
