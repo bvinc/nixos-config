@@ -21,52 +21,55 @@
 
   home = {
     # enableDebugInfo = true;
-    packages = with pkgs; [
-      bottles
-      calibre
-      curl
-      dconf-editor
-      direnv
-      extremetuxracer
-      file
-      gcc
-      gnome-terminal
-      gnome-tweaks
-      google-chrome
-      grc
-      intel-gpu-tools
-      jujutsu
-      killall
-      llvm
-      lm_sensors
-      lutris-free
-      nixfmt-rfc-style # nix formatter
-      openai
-      pciutils
-      ripgrep
-      spotify
-      steam
-      traceroute
-      transmission_4-gtk
-      unzip
-      wget
+    packages =
+      (with pkgs; [
+        bottles
+        calibre
+        curl
+        dconf-editor
+        direnv
+        extremetuxracer
+        file
+        gcc
+        gnome-terminal
+        gnome-tweaks
+        google-chrome
+        grc
+        intel-gpu-tools
+        jujutsu
+        killall
+        llvm
+        lm_sensors
+        lutris-free
+        nixfmt-rfc-style # nix formatter
+        openai
+        pciutils
+        ripgrep
+        steam
+        traceroute
+        transmission_4-gtk
+        unzip
+        wget
 
-      (pkgs.writeShellApplication {
-        name = "codex";
-        runtimeInputs = [ pkgs.nodejs_22 ];
-        text = ''
-          exec npx @openai/codex "$@"
-        '';
-      })
-      (pkgs.writeShellApplication {
-        name = "claude-code";
-        runtimeInputs = [ pkgs.nodejs_22 ];
-        text = ''
-          exec npx @anthropic-ai/claude-code "$@"
-        '';
-      })
+        (pkgs.writeShellApplication {
+          name = "codex";
+          runtimeInputs = [ pkgs.nodejs_22 ];
+          text = ''
+            exec npx @openai/codex "$@"
+          '';
+        })
+        (pkgs.writeShellApplication {
+          name = "claude-code";
+          runtimeInputs = [ pkgs.nodejs_22 ];
+          text = ''
+            exec npx @anthropic-ai/claude-code "$@"
+          '';
+        })
 
-    ];
+      ])
+      ++ (with unstable; [
+        spotify
+      ]);
   };
 
   codex.enable = true;
