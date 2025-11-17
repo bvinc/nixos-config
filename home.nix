@@ -100,7 +100,7 @@
   dconf.settings = {
     # Blank Screen Delay
     "org/gnome/desktop/session" = {
-      idle-delay = lib.hm.gvariant.mkUint32 900; # 15 minutes
+      idle-delay = lib.hm.gvariant.mkUint32 (15 * 60);
     };
 
     # Custom Keyboard Shortcuts
@@ -137,6 +137,10 @@
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
+      idle-dim              = true;
+      idle-brightness       = lib.hm.gvariant.mkUint32 30;
+      sleep-display-ac      = lib.hm.gvariant.mkUint32 (60 * 60);
+      sleep-display-battery = lib.hm.gvariant.mkUint32 (30 * 60);
       sleep-inactive-ac-timeout = lib.hm.gvariant.mkInt32 1800; # 30 minutes
     };
 
