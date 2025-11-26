@@ -49,6 +49,7 @@
         traceroute
         transmission_4-gtk
         unzip
+        vlc
         wget
 
         (pkgs.writeShellApplication {

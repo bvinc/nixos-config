@@ -73,6 +73,7 @@
   services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
+    bluetooth.enable = true;
     pulse.enable = true;
   };
 

@@ -65,6 +65,15 @@
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.gsconnect
+ 
+    # gnome video codec stuff
+    gnome-video-effects
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-base
+ 
     killall
     signal-desktop
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
