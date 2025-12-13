@@ -29,15 +29,15 @@
     graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel
-      vaapiVdpau
+      intel-vaapi-driver
+      libva-vdpau-driver
       libvdpau-va-gl
       vpl-gpu-rt
       intel-compute-runtime
     ];
     graphics.extraPackages32 = with pkgs.pkgsi686Linux; [
       intel-media-driver
-      vaapiIntel
+      intel-vaapi-driver
     ];
   };
 

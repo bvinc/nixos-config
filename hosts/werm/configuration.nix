@@ -24,11 +24,11 @@
 
     graphics.extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel
-      vaapiVdpau
+      intel-vaapi-driver
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
-    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
+    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   };
 
   # Use the systemd-boot EFI boot loader.

@@ -80,8 +80,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Brian Vincent";
-    userEmail = "brainn@gmail.com";
+    settings.user = {
+      name = "Brian Vincent";
+      email = "brainn@gmail.com";
+    };
   };
 
   programs.zsh.enable = true;
