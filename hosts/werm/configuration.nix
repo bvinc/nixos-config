@@ -69,14 +69,6 @@
 
   services.libinput.mouse.accelProfile = "flat";
 
-  # Enable sound.
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    bluetooth.enable = true;
-    pulse.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 

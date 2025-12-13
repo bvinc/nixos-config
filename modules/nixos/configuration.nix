@@ -20,6 +20,15 @@
     options = "--delete-older-than 30d";
   };
 
+  hardware.bluetooth.enable = true;
+
+  # Enable sound.
+  services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
   boot.tmp.cleanOnBoot = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -65,7 +74,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.gsconnect
- 
+
     # gnome video codec stuff
     gnome-video-effects
     gst_all_1.gst-libav
@@ -73,7 +82,7 @@
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-base
- 
+
     killall
     signal-desktop
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
