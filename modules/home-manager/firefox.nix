@@ -87,11 +87,14 @@ in
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/html" = [ "firefox.desktop" ];
-    "text/xml" = [ "firefox.desktop" ];
-    "x-scheme-handler/http" = [ "firefox.desktop" ];
-    "x-scheme-handler/https" = [ "firefox.desktop" ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = [ "firefox.desktop" ];
+      "text/xml" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+    };
   };
 
   home.file.".mozilla/managed-storage/uBlock0@raymondhill.net.json".text = builtins.toJSON {
