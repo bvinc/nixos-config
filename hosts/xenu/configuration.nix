@@ -95,7 +95,7 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
-  environment.enableDebugInfo = true;
+  # environment.enableDebugInfo = true;
 
   # To allow third-party un-packaged non-static binaries to run
   programs.nix-ld.enable = true;
