@@ -17,7 +17,7 @@
     ../../modules/nixos/configuration.nix
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # boot.kernelParams = [
   #   "i915.force_probe=!56a0"
