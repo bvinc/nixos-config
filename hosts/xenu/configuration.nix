@@ -17,7 +17,7 @@
     ../../modules/nixos/configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # boot.kernelParams = [
   #   "i915.force_probe=!56a0"
@@ -200,5 +200,10 @@
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
+
+  # This is to temporarily work around a mesa/gtk bug  https://github.com/NixOS/nixpkgs/issues/463220
+  environment.sessionVariables = {
+    GDK_DISABLE = "vulkan";
+  };
 
 }
