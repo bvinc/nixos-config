@@ -72,7 +72,7 @@
         code-cursor
         cursor-cli
         spotify
-        unity
+        unityhub
       ]);
   };
 
