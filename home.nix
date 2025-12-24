@@ -72,6 +72,7 @@
         code-cursor
         cursor-cli
         spotify
+        unity
       ]);
   };
 
@@ -140,9 +141,9 @@
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
-      idle-dim              = true;
-      idle-brightness       = lib.hm.gvariant.mkUint32 30;
-      sleep-display-ac      = lib.hm.gvariant.mkUint32 (60 * 60);
+      idle-dim = true;
+      idle-brightness = lib.hm.gvariant.mkUint32 30;
+      sleep-display-ac = lib.hm.gvariant.mkUint32 (60 * 60);
       sleep-display-battery = lib.hm.gvariant.mkUint32 (30 * 60);
       sleep-inactive-ac-timeout = lib.hm.gvariant.mkInt32 1800; # 30 minutes
     };
