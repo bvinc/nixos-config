@@ -36,6 +36,7 @@
         google-chrome
         grc
         intel-gpu-tools
+        jq
         jujutsu
         killall
         llvm
