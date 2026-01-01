@@ -11,6 +11,25 @@ let
   ];
 in
 {
+  xdg.mimeApps.defaultApplications = {
+    "text/x-csharp" = [ "code.desktop" ];
+    "text/x-nix" = [ "code.desktop" ];
+    "text/x-python" = [ "code.desktop" ];
+    "application/javascript" = [ "code.desktop" ];
+    "text/typescript" = [ "code.desktop" ];
+    "application/json" = [ "code.desktop" ];
+    "application/yaml" = [ "code.desktop" ];
+    "text/markdown" = [ "code.desktop" ];
+    "text/x-shellscript" = [ "code.desktop" ];
+    "text/x-rust" = [ "code.desktop" ];
+    "text/x-go" = [ "code.desktop" ];
+    "text/x-java" = [ "code.desktop" ];
+    "text/x-c" = [ "code.desktop" ];
+    "text/x-c++" = [ "code.desktop" ];
+    "application/xml" = [ "code.desktop" ];
+    "text/plain" = [ "code.desktop" ];
+  };
+
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
