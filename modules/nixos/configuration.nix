@@ -50,6 +50,19 @@
     flake = "github:bvinc/nixos-config#" + config.networking.hostName;
   };
 
+  # Define a user account.
+  users.users.brain = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHH2gxXw0dRdxbnkjGGcag/pLVkNLYq4LswQKVs3PmdA brain@xenu"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKMI0j9Dcs3iUKjaWctqWqVApkubmwohKJ+75UDIUkuO brain@werm"
+
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPjs1Q2CfVzmr3V4Amm9LqDafPEBTHA6nCxQASShRvg2 termius"
+      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDW4KzsqCEux5L1fcW4bnr7L4ByD2N4L+97MT7OUWuiqd98qIN5sRWPDZG4ZBxJvmRZK7qLDgpP3TwNik31blOI= termius2"
+    ];
+  };
+
   # Disable root password
   users.users.root.hashedPassword = "*";
 
