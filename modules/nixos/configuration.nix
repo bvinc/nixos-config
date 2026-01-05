@@ -10,6 +10,7 @@
     # ./hyprland.nix
     # ./kde.nix
     # ./sway.nix
+    ./tailscale.nix
   ];
 
   # Prevent /boot from filling up
