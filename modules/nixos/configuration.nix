@@ -78,7 +78,14 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      gutenprint
+      brlaser
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
