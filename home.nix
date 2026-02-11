@@ -46,6 +46,7 @@
         openai
         pciutils
         ripgrep
+        slack
         steam
         traceroute
         transmission_4-gtk
