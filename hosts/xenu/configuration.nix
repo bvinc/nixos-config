@@ -148,6 +148,9 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
   # Enable podman for toolbox
   virtualisation.podman.enable = true;
   services.flatpak.enable = true;

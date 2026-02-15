@@ -53,7 +53,7 @@
   # Define a user account.
   users.users.brain = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable 'sudo' for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHH2gxXw0dRdxbnkjGGcag/pLVkNLYq4LswQKVs3PmdA brain@xenu"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKMI0j9Dcs3iUKjaWctqWqVApkubmwohKJ+75UDIUkuO brain@werm"
