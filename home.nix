@@ -24,6 +24,7 @@
     packages =
       (with pkgs; [
         bottles
+        bubblewrap
         calibre
         curl
         dconf-editor
