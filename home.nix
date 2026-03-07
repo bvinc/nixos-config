@@ -62,13 +62,7 @@
             exec npx @openai/codex "$@"
           '';
         })
-        (pkgs.writeShellApplication {
-          name = "claude-code";
-          runtimeInputs = [ pkgs.nodejs_22 ];
-          text = ''
-            exec npx @anthropic-ai/claude-code "$@"
-          '';
-        })
+        claude-code
 
       ])
       ++ (with unstable; [

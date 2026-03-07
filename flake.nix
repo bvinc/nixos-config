@@ -6,6 +6,7 @@
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    claude-code.url = "github:sadjow/claude-code-nix";
     # local-mutter = {
     #   url = "path:/home/brain/src/mutter";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
       nixpkgs,
       home-manager,
       unstable,
+      claude-code,
       ...
     }@inputs:
     let
@@ -37,6 +39,7 @@
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
           ./hosts/werm/configuration.nix
+          { nixpkgs.overlays = [ claude-code.overlays.default ]; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -58,6 +61,7 @@
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
           ./hosts/xenu/configuration.nix
+          { nixpkgs.overlays = [ claude-code.overlays.default ]; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
