@@ -43,6 +43,7 @@
         llvm
         lm_sensors
         lutris-free
+        mosh
         nixfmt-rfc-style # nix formatter
         openai
         pciutils
