@@ -84,6 +84,14 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    wireplumber.extraConfig."51-disable-asus-spdif" = {
+      "monitor.alsa.rules" = [
+        {
+          matches = [{ "device.name" = "alsa_card.usb-Generic_USB_Audio-00"; }];
+          actions.update-props."device.disabled" = true;
+        }
+      ];
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
