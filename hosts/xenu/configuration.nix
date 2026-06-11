@@ -207,9 +207,11 @@
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
 
-  # This is to temporarily work around a mesa/gtk bug  https://github.com/NixOS/nixpkgs/issues/463220
-  environment.sessionVariables = {
-    GDK_DISABLE = "vulkan";
-  };
+  # Was needed on 25.11 (mesa 25.3.0 GTK4/vulkan rendering bug, nixpkgs#463220).
+  # 26.05 ships mesa 26.1.2 + fixed GTK4, so disabled on upgrade.
+  # If black artifacts / GTK4 crashes return, un-comment and rebuild.
+  # environment.sessionVariables = {
+  #   GDK_DISABLE = "vulkan";
+  # };
 
 }
