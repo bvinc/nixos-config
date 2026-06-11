@@ -158,6 +158,7 @@
 
   # Enable Docker
   virtualisation.docker.enable = true;
+  virtualisation.docker.package = pkgs.docker_29;
 
   # Enable podman for toolbox
   virtualisation.podman.enable = true;
