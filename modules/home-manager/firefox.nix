@@ -14,6 +14,9 @@ in
   programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
+    # 26.05 changed the default to the XDG path; keep the legacy location so
+    # the existing ~/.mozilla/firefox profile is used without migrating it.
+    configPath = ".mozilla/firefox";
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
