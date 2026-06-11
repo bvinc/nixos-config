@@ -47,4 +47,13 @@
       }
     ];
   };
+
+  # grc's mtr colorizer breaks modern mtr: its parser waits for \r/\n line
+  # endings that current mtr no longer emits, so wrapped `mtr` produces no
+  # output. Exclude mtr from the grc fish plugin (everything else stays
+  # colorized). The plugin reads $grc_plugin_ignore_execs when its conf.d
+  # runs, so this file is named to sort before plugin-grc.fish.
+  xdg.configFile."fish/conf.d/00-grc-ignore.fish".text = ''
+    set -g grc_plugin_ignore_execs mtr
+  '';
 }
