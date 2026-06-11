@@ -24,22 +24,25 @@ echo -e "${GREEN}==> Detecting hostname...${NC}"
 HOSTNAME=$(hostname)
 echo -e "Building for host: ${YELLOW}${HOSTNAME}${NC}"
 
+# set -e aborts here if the dry-build fails, so anything past this point is good.
 echo -e "${GREEN}==> Testing build...${NC}"
 sudo nixos-rebuild dry-build --flake ".#${HOSTNAME}"
 
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}==> Build test passed! Committing changes...${NC}"
+# Commit and push BEFORE switching, so the running system always matches a
+# state that is committed and pushed to the remote (never divergent/dirty).
+# The guard means an unchanged flake.lock no longer aborts the script.
+if ! git diff --quiet flake.lock; then
+    echo -e "${GREEN}==> Committing flake.lock changes...${NC}"
     git add flake.lock
     git commit -m "update"
 
     echo -e "${GREEN}==> Pushing to remote...${NC}"
     git push
-
-    echo -e "${GREEN}==> Applying configuration...${NC}"
-    sudo nixos-rebuild switch --flake ".#${HOSTNAME}"
-
-    echo -e "${GREEN}==> Update complete!${NC}"
 else
-    echo -e "${RED}==> Build test failed. Not committing or applying changes.${NC}"
-    exit 1
+    echo -e "${YELLOW}==> No flake.lock changes to commit.${NC}"
 fi
+
+echo -e "${GREEN}==> Applying configuration...${NC}"
+sudo nixos-rebuild switch --flake ".#${HOSTNAME}"
+
+echo -e "${GREEN}==> Update complete!${NC}"
