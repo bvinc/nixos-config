@@ -79,12 +79,10 @@ in
       };
       WebsiteFilter = {
         Block = [
-          "*://www.reddit.com/"
-          "*://www.reddit.com/r/all/*"
-          "*://www.reddit.com/r/popular/*"
-          "*://old.reddit.com/"
-          "*://old.reddit.com/r/all/*"
-          "*://old.reddit.com/r/popular/*"
+          "*://*.reddit.com/"
+          "*://*.reddit.com/?*"
+          "*://*.reddit.com/r/all/*"
+          "*://*.reddit.com/r/popular/*"
         ];
       };
     };
