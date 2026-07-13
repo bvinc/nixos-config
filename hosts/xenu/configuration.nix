@@ -14,6 +14,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./openrgb.nix
+    ./sensors.nix
     ../../modules/nixos/configuration.nix
   ];
 
