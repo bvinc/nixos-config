@@ -113,17 +113,10 @@ in
           www.youtube-nocookie.com##.ytp-endscreen-content
           www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-renderer.style-scope
 
-          ! Endless-scroll feeds; subreddits are left alone.
-          reddit.com##shreddit-feed[feed-type="home"]
-          reddit.com##shreddit-feed[feed-type="all"]
-          reddit.com##shreddit-feed[feed-type="popular"]
-
-          ! In-app links to those feeds.
-          reddit.com##a[href="/"]
-          reddit.com##a[href="/r/all"]
-          reddit.com##a[href="/r/all/"]
-          reddit.com##a[href="/r/popular"]
-          reddit.com##a[href="/r/popular/"]
+          ! Main feeds; subreddits and posts are untouched.
+          reddit.com##shreddit-app[routename="frontpage"] shreddit-feed
+          reddit.com##shreddit-app[routename="popular"] shreddit-feed
+          reddit.com##shreddit-app[routename="all"] shreddit-feed
         '';
       };
     };
