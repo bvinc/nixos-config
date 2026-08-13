@@ -105,13 +105,17 @@ in
     data = {
       adminSettings = {
         userFilters = ''
-          www.youtube.com###related
-          www.youtube.com##.ytp-pause-overlay
-          www.youtube.com##.ytp-endscreen-content
-          www.youtube-nocookie.com###related
-          www.youtube-nocookie.com##.ytp-pause-overlay
-          www.youtube-nocookie.com##.ytp-endscreen-content
-          www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-renderer.style-scope
+          ! Recommendation surfaces in and around the player.
+          ! .html5-endscreen covers both endscreen variants (the player picks
+          ! .ytp-endscreen-content or .ytp-modern-endscreen-content on a flag).
+          ! .ytp-fullscreen-grid is the fullscreen related-videos panel;
+          ! .ytp-more-videos-button opens it and reflows the controls, so both go.
+          youtube.com,youtube-nocookie.com###related
+          youtube.com,youtube-nocookie.com##.html5-endscreen
+          youtube.com,youtube-nocookie.com##.ytp-pause-overlay
+          youtube.com,youtube-nocookie.com##.ytp-fullscreen-grid
+          youtube.com,youtube-nocookie.com##.ytp-more-videos-button
+          youtube.com##ytd-structured-description-content-renderer ytd-reel-shelf-renderer
 
           ! Main feeds; subreddits and posts are untouched.
           reddit.com##shreddit-app[routename="frontpage"] shreddit-feed
