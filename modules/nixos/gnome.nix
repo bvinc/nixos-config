@@ -15,6 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cheese
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.arc-menu
