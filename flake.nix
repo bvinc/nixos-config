@@ -31,6 +31,7 @@
         inherit system;
         config.allowUnfree = true;
       };
+      tailscaleOverlay = final: prev: { tailscale = pkgsUnstable.tailscale; };
     in
     {
       nixosConfigurations.werm = nixpkgs.lib.nixosSystem {
@@ -39,7 +40,7 @@
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
           ./hosts/werm/configuration.nix
-          { nixpkgs.overlays = [ claude-code.overlays.default ]; }
+          { nixpkgs.overlays = [ claude-code.overlays.default tailscaleOverlay ]; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -61,7 +62,7 @@
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
           ./hosts/xenu/configuration.nix
-          { nixpkgs.overlays = [ claude-code.overlays.default ]; }
+          { nixpkgs.overlays = [ claude-code.overlays.default tailscaleOverlay ]; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
